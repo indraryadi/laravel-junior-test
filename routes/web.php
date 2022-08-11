@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify'=>true]);
-
+Route::resource('companie',CompanieController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
