@@ -32,7 +32,12 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">  
                                 <div class="form-group">
                                     <label for="Company">Company</label>
-                                    <input type="text" name="Company" id="Company" placeholder="Your Company" class="form-control mb-3">
+                                    {{-- <input type="text" name="Company" id="Company" placeholder="Your Company" class="form-control mb-3"> --}}
+                                    <select name="Company" id="Company" class="form-select">
+                                        @foreach ($companieData as $data)
+                                            <option value="{{ $data->id }}">{{ $data->name }}</option>    
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">  
