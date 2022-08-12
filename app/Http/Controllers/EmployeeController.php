@@ -14,7 +14,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees=employee::all();
+        // $employees=employee::paginate(10);
+        // $employees=employee::with('companie')->paginate(10);
+        return view('employee.index',compact('employees',));
     }
 
     /**
@@ -24,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        employee::create($data);
+        return redirect()->route('employee.index');
+
     }
 
     /**
@@ -82,4 +88,5 @@ class EmployeeController extends Controller
     {
         //
     }
+
 }
