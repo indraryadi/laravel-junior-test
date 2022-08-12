@@ -6,13 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Companie') }}</div>
-
+                
                 <div class="card-body">
-                    {{-- @if (session('status'))
+                    @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif --}}
+                    @endif
+                    <a href="{{ route('companie.index') }}" class="btn btn-primary mb-3">Back to home</a>
                     <form action="{{ route('companie.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">

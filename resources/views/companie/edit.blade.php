@@ -8,11 +8,11 @@
                 <div class="card-header">{{ __('Companie') }}</div>
 
                 <div class="card-body">
-                    {{-- @if (session('status'))
+                    @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif --}}
+                    @endif
                     <form action="{{ route('companie.update',$companie->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
