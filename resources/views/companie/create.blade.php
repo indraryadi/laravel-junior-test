@@ -18,27 +18,47 @@
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="name">Company Name</label>
-                                    <input type="text" name="name" id="name" placeholder="Your Companie Name" class="form-control mb-3">
+                                    <input type="text" name="name" id="name" placeholder="Your Companie Name" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocuss>
+                                    @error('name')
+                                        <div class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">  
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="logo">Company Logo</label>
-                                    <input type="file" name="logo" id="logo" placeholder="Your Companie Logo" class="form-control mb-3">
+                                    <input type="file" name="logo" id="logo" placeholder="Your Companie Logo" class="form-control @error('logo') is-invalid @enderror" >
+                                    @error('logo')
+                                        <div class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">  
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="email">Company Email</label>
-                                    <input type="text" name="email" id="email" placeholder="Your Companie Email" class="form-control mb-3">
+                                    <input type="text" name="email" id="email" placeholder="Your Companie Email" class="form-control @error('email') is-invalid  @enderror" required autocomplete="email" autofocus>
+                                    @error('email')
+                                        <div class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">  
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="website">Company Website</label>
-                                    <input type="text" name="website" id="website" placeholder="Your Companie Website" class="form-control mb-3">
+                                    <input type="text" name="website" id="website" placeholder="Your Companie Website" class="form-control @error('website') is-invalid @enderror" required autocomplete="website" autofocus>
+                                    @error('website')
+                                        <div class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
