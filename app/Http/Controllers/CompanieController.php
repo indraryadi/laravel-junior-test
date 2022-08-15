@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\companie;
 use Illuminate\Http\Request;
+use App\Http\Requests\CompanieRequest;
 
 class CompanieController extends Controller
 {
@@ -40,8 +41,10 @@ class CompanieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanieRequest $request)
     {
+
+        $request->validated();
         $data=$request->all();
         if($request->hasFile('logo')){
             $logo=$request->file('logo');
@@ -51,8 +54,9 @@ class CompanieController extends Controller
             $data['logo']=$logoName;
         }
         
+        
         companie::create($data);
-        return redirect()->route('companie.index');
+        return redirect()->route('companie.index')->withErrors($request);
     }
 
     /**
@@ -85,8 +89,10 @@ class CompanieController extends Controller
      * @param  \App\Models\companie  $companie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, companie $companie)
+    public function update(CompanieRequest $request, companie $companie)
     {
+
+        $request->validated();
         $data=$request->all();
         if($request->hasFile('logo')){
             $logo=$request->file('logo');
